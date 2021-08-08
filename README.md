@@ -2,7 +2,8 @@
 TaxiFareModel predicts the price of a taxi trip from a given pickup location to
 a specified dropoff location, takes into account the date, time and number of
 passengers on the trip. The model is trained and tested on data from the
-New York City Taxi Fare Prediction dataset (https://www.kaggle.com/c/new-york-city-taxi-fare-prediction/data)
+New York City Taxi Fare Prediction dataset (https://www.kaggle.com/c/new-york-city-taxi-fare-prediction/data).
+
 The model calculates the haversine distance between pickup and dropoff location
 and uses a linear regression to predict a final taxi fare based on distance
 between pickup and dropoff location, date, time and number of passengers.
