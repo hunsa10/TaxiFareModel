@@ -75,14 +75,13 @@ create_bucket:
 
 ### Upload dataset
 
-# path to the file to upload to GCP (the path to the file should be absolute or should match the directory where the make command is ran)
-# replace with your local path to the `train_1k.csv` and make sure to put the path between quotes
+# path to the file to upload to GCP
 LOCAL_PATH="/Users/sarahhunt/code/hunsa10/TaxiFareModel/raw_data/train_10k.csv"
 
-# bucket directory in which to store the uploaded file (`data` is an arbitrary name that we choose to use)
+# bucket directory in which to store the uploaded file
 BUCKET_FOLDER=data
 
-# name for the uploaded file inside of the bucket (we choose not to rename the file that we upload)
+# name for the uploaded file inside of the bucket
 BUCKET_FILE_NAME=$(shell basename ${LOCAL_PATH})
 
 upload_data:
@@ -126,10 +125,10 @@ gcp_submit_training:
 		--region ${REGION} \
 		--stream-logs
 
-# Clean
-clean:
-	@rm -f */version.txt
-	@rm -f .coverage
-	@rm -fr */__pycache__ __pycache__
-	@rm -fr build dist *.dist-info *.egg-info
-	@rm -fr */*.pyc
+# # Clean
+# clean:
+# 	@rm -f */version.txt
+# 	@rm -f .coverage
+# 	@rm -fr */__pycache__ __pycache__
+# 	@rm -fr build dist *.dist-info *.egg-info
+# 	@rm -fr */*.pyc

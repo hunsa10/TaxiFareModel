@@ -25,7 +25,7 @@ def get_test_data(nrows, data="s3"):
     """method to get the test data (or a portion of it) from google cloud bucket
     To predict we can either obtain predictions from train data or from test data"""
     # Add Client() here
-    path = "data/test.csv"  # ⚠️ to test from actual KAGGLE test set for submission
+    path = "data/test.csv"
 
     if data == "local":
         df = pd.read_csv(path)
@@ -39,6 +39,7 @@ def get_test_data(nrows, data="s3"):
 def get_model(path_to_joblib):
     pipeline = joblib.load(path_to_joblib)
     return pipeline
+
 
 def download_model(model_directory="PipelineTest", bucket=BUCKET_NAME, rm=False):
     client = storage.Client().bucket(bucket)

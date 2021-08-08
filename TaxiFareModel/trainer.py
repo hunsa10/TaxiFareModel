@@ -19,8 +19,6 @@ BUCKET_NAME = 'wagon-data-577-hunt'
 ##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
 
 # train data file location
-# /!\ here you need to decide if you are going to train using the provided and uploaded data/train_1k.csv sample file
-# or if you want to use the full dataset (you need need to upload it first of course)
 BUCKET_TRAIN_DATA_PATH = 'data/train_1k.csv'
 
 ##### Training  - - - - - - - - - - - - - - - - - - - - - -
@@ -37,7 +35,6 @@ MODEL_VERSION = 'v1'
 
 # For storing model
 STORAGE_LOCATION = 'models/simpletaxifare/model.joblib'
-
 
 
 class Trainer():
@@ -75,8 +72,7 @@ class Trainer():
                          ['pickup_datetime'])],
                         remainder="drop")
 
-        # Add linear regression model to complete pipeline
-        # Add the model of your choice to the pipeline
+        # Add linear regression model
         self.pipeline = Pipeline([
                 ('preproc', preproc_pipe),
                 ('linear_model', LinearRegression())])
@@ -102,8 +98,7 @@ class Trainer():
         """method that saves the model into a .joblib file and uploads it on Google Storage /models folder
         HINTS : use joblib library and google-cloud-storage"""
 
-        # saving the trained model to disk is mandatory to then beeing able to upload it to storage
-        # Implement here
+        # saving the trained model to disk necessary to upload it to storage
         joblib.dump(self.pipeline, 'model.joblib')
         print("saved model.joblib locally")
 

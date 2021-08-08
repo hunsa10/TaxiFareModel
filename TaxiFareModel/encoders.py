@@ -43,12 +43,10 @@ class DistanceTransformer(BaseEstimator, TransformerMixin):
         self.end_lat = end_lat
         self.end_lon = end_lon
 
-    def fit(self, X, y=None):  # Here empty but would be the place to do anything you need to
-                               # calculate to fit data
+    def fit(self, X, y=None):
         return self
 
-    def transform(self, X, y=None):  # Function where transforming actually happens
-                                     # (apply transformtation)
+    def transform(self, X, y=None):  # (apply transformtation)
         assert isinstance(X, pd.DataFrame)
         X_ = X.copy()
         X_["distance"] = haversine_vectorized(
